@@ -5,5 +5,7 @@ public class AoC2022Core {
         System.out.println();
         new Day2();
         System.out.println();
+        new Day3();
+        System.out.println();
     }
 }
