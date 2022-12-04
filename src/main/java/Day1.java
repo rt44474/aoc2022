@@ -2,10 +2,9 @@ import java.util.ArrayList;
 import java.util.Collections;
 import java.util.List;
 
-public class Day1 extends AOCPuzzle{
+public class Day1 extends AOCPuzzle {
 
-    public Day1()
-    {
+    public Day1() {
         super("1");
     }
 

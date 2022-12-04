@@ -6,36 +6,30 @@ public abstract class AOCPuzzle {
     private int part = 1;
     private long timerStart;
 
-    public AOCPuzzle(String day)
-    {
+    public AOCPuzzle(String day) {
         File file = new File("res/day" + day + ".txt");
-        if(!file.exists())
-        {
+        if (!file.exists()) {
             solve(new ArrayList<>());
             return;
         }
 
         BufferedReader reader;
-        try
-        {
+        try {
             reader = new BufferedReader(new FileReader(file));
-        } catch(FileNotFoundException e)
-        {
+        } catch (FileNotFoundException e) {
             System.err.println("File not found!!");
             solve(new ArrayList<>());
             return;
         }
 
         List<String> inputLines = new ArrayList<>();
-        try
-        {
+        try {
             String line;
-            while((line = reader.readLine()) != null)
+            while ((line = reader.readLine()) != null)
                 inputLines.add(line);
 
             reader.close();
-        } catch(IOException e)
-        {
+        } catch (IOException e) {
             e.printStackTrace();
         }
 
@@ -45,17 +39,15 @@ public abstract class AOCPuzzle {
 
     abstract void solve(List<String> input);
 
-    public void lap(long answer)
-    {
+    public void lap(long answer) {
         lap(String.valueOf(answer));
     }
 
-    public void lap(String answer)
-    {
+    public void lap(String answer) {
         long timeSpent = (System.nanoTime() - timerStart) / 1000;
-        if(timeSpent < 1000)
+        if (timeSpent < 1000)
             System.out.println("Part " + part + ": " + answer + ", Duration: " + timeSpent + "µs");
-        else if(timeSpent < 1000000)
+        else if (timeSpent < 1000000)
             System.out.println("Part " + part + ": " + answer + ", Duration: " + (timeSpent / 1000.0) + "ms");
         else
             System.out.println("Part " + part + ": " + answer + ", Duration: " + (timeSpent / 1000000.0) + "s");
@@ -63,18 +55,16 @@ public abstract class AOCPuzzle {
         part++;
     }
 
-    public List<Integer> convertToInts(List<String> input)
-    {
+    public List<Integer> convertToInts(List<String> input) {
         List<Integer> ints = new ArrayList<>();
-        for(String s : input)
+        for (String s : input)
             ints.add(Integer.parseInt(s));
         return ints;
     }
 
-    public List<Long> convertToLongs(List<String> input)
-    {
+    public List<Long> convertToLongs(List<String> input) {
         List<Long> ints = new ArrayList<>();
-        for(String s : input)
+        for (String s : input)
             ints.add(Long.parseLong(s));
         return ints;
     }
